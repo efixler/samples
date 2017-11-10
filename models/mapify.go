@@ -7,16 +7,6 @@ import (
 	"sync"
 )
 
-type Persistent interface {
-    Store() error
-    Update() error
-    Load() (*Persistent, error)
-}
-
-type Validateable interface {
-    Validate() error
-}
-
 var (
 	pMapCache = make(map[string]map[string]string) 
 	pLock = new(sync.RWMutex)
